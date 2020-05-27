@@ -6,12 +6,20 @@
 #if !defined(INFRA_STRING_VIEW_MAY_22_2020)
 #define INFRA_STRING_VIEW_MAY_22_2020
 
-#if (__cplusplus >= 201703L) || defined(__cpp_lib_string_view)
+#if 0 //(__cplusplus >= 201703L) || defined(__cpp_lib_string_view)
 
 #include <string_view>
 
 namespace cycfi {
     template <class C> using basic_string_view = std::basic_string_view<C>;
+}
+
+#elif 1
+
+#include "detail/nonstd/string_view.hpp"
+
+namespace cycfi {
+    template <class C> using basic_string_view = nonstd::basic_string_view<C>;
 }
 
 #else
